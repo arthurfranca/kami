@@ -1,8 +1,10 @@
 class Project
   include Mongoid::Document
 
-  has_many :allocations
   embeds_one :baseline_ends # with versioning - acts like embeds_many
+
+  has_many :allocations
+  has_many :tasks
   
   has_and_belongs_to_many :specialties
 
