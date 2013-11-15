@@ -4,5 +4,5 @@ class BaselineEnd
 
   embedded_in :project
 
-  field :hours, type: Integer
+  field :date, type: Date
 end
