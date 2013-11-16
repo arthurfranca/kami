@@ -12,6 +12,10 @@ pt-BR:
       default_message: "Por favor, verifique os problemas abaixo:"
     # Labels and hints examples
     labels:
+      defaults:
+        username: 'Usuário'
+        password: 'Senha'
+        remember_me: 'Lembrar'
       # element_search:
       #   description: "Descrição"
       #   begin_date: "Cadastrados a partir de"

@@ -1,10 +1,9 @@
 class User
   include Mongoid::Document
   include Mongoid::Paranoia # deleted_at
-  rolify
+  after_create { assign_role }
 
-  after_create :assign_role
-  attr_accessor :selected_role
+  rolify
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -47,40 +46,51 @@ class User
   # belongs_to :role - top rolify method already covers it
 
   has_many :allocations
-  has_many :requests, class_name: "Task", inverse_of: :requester
-  has_many :assignments, class_name: "Task", inverse_of: :resource
+  has_many :requests, class_name: "Task", inverse_of: :requester, autosave: true
+  has_many :assignments, class_name: "Task", inverse_of: :resource, autosave: true
   
   has_and_belongs_to_many :specialties
 
   accepts_nested_attributes_for :job, :specialties #, :role
 
+  attr_accessor :selected_role
+
   field :name, type: String
-  # field :email, type: String
+  # field :email, type: String - devise will take care of it
   field :phone, type: String
   field :address, type: String
   field :is_available, type: Boolean
 
-  field :username, type: String
-  field :password, type: String
+  field :username, type: String # configured on devise initializer and down on email_required?
+  # field :password, type: String - devise will take care of it
 
   def projects
     Project.in(id: allocations.map(&:project_id))
   end
 
 private
+  def email_required?
+    false
+  end
   def assign_role
-    byebug #self.roles.blank?
-    if @selected_role.present?
-      case @selected_role
+    if selected_role.present?
+      case selected_role
       when "Administrador" then
         add_role(:admin)
       when "Gerente" then
         add_role(:manager)
       when "Recurso" then
         add_role(:resource)
+      else
+        add_role(:resource)
       end
-    elsif @roles.blank? #default role
+    elsif roles.blank? #default role
       add_role(:resource)
     end
   end
 end
+# validates :username,
+#   :uniqueness => {
+#     :case_sensitive => false
+#   },
+#   :format => { ... } # etc.

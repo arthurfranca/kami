@@ -1,11 +1,8 @@
 Psw::Application.routes.draw do
   devise_for :users
 
-  # devise_scope :user do  #/ goes to /users/sign_in
-  #   root to: "devise/sessions#new"
-  # end
-
   root to: "home#index"
+  
   resources :users
   resources :projects
   resources :jobs
