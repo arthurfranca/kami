@@ -41,7 +41,25 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# DB
 gem "mongoid", git: 'git@github.com:mongoid/mongoid.git'
+# Paranoia and Versioning
+gem 'mongoid-paranoia', github: 'simi/mongoid-paranoia'
+gem 'mongoid-versioning', github: 'arthurfranca/mongoid-versioning'
+
+# Form Helper
+gem 'simple_form'
+
+# Authentication + Authorization + Role
+gem 'devise'
+gem 'cancan'
+gem 'rolify', github: 'EppO/rolify'
+
+# UI
+gem 'anjlab-bootstrap-rails', '~> 3.0.1.0', :require => 'bootstrap-rails'
+gem 'anjlab-widgets', '~> 3.0.3'
+
 group :development, :test do
   gem 'byebug', '~> 2.2.1'
   gem 'pry-byebug'
