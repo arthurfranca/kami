@@ -6,11 +6,15 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="logged-out">
 
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <span class="text-center">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </span>
 </body>
 </html>

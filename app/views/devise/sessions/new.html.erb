@@ -1,16 +1,20 @@
-<h2>Sistema de Gestão</h2>
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-4" id="login-panel">
+    <h2 class="text-center">Gerenciador Outono</h2>
 
-<%= simple_form_for resource, as: resource_name, url: session_path(resource_name), defaults: { wrapper_html: { class: "form-group"}, input_html: { class: "form-control" } } do |f| %>
-  <div class="form-inputs">
-    <%#= f.input :email, :required => false, :autofocus => true %>
-    <%= f.input :username, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
-    <%= f.input :remember_me, input_html: { class: "" }, :as => :boolean if devise_mapping.rememberable? %>
+    <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), defaults: { wrapper_html: { class: "form-group"}, input_html: { class: "form-control" } } do |f| %>
+    <div class="form-inputs">
+      <%#= f.input :email, :required => false, :autofocus => true %>
+      <%= f.input :username, :required => false, :autofocus => true %>
+      <%= f.input :password, :required => false %>
+      <%= f.input :remember_me, input_html: { class: "" }, :as => :boolean if devise_mapping.rememberable? %>
+    </div>
+
+    <div class="form-actions pull-right">
+      <%= f.button :submit, "Entrar", class: "btn-primary" %>
+    </div>
+    <% end %>
+
+    <%#= render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Entrar" %>
-  </div>
-<% end %>
-
-<%#= render "devise/shared/links" %>
+</div>

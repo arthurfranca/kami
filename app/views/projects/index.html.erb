@@ -1,4 +1,54 @@
-<h1>Listing projects</h1>
+<h3>Gerenciar Projetos<a href="#" class="btn btn-primary pull-right">Adicionar Novo</a></h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome do Projeto</th>
+      <th>Editar</th>
+      <th>Excluir</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>Projeto X</td>
+    <td class="edit-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-edit"></span>
+      </a>
+    </td>
+    <td class="remove-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Projeto Y</td>
+    <td class="edit-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-edit"></span>
+      </a>
+    </td>
+    <td class="remove-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Projeto Z</td>
+    <td class="edit-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-edit"></span>
+      </a>
+    </td>
+    <td class="remove-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<!-- <h1>Listing projects</h1>
 
 <table>
   <thead>
@@ -10,16 +60,17 @@
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
+    <%# @projects.each do |project| %>
       <tr>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to project.name, project %></td>
+        <td><%#= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%#= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<%#= link_to 'New Project', new_project_path %>
+ -->

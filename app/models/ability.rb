@@ -8,6 +8,7 @@ class Ability
     # alias_action :edit, :to => :update
     alias_action :create, :read, :update, :destroy, :to => :crud
 
+    user ||= User.new
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :manager

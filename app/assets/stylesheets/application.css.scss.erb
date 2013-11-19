@@ -22,6 +22,52 @@
 @import "anjlab/datepicker";
 @import "anjlab/timepicker";
 
-.container {
-  margin-top: 51px;
+// mixins ------------------------------------------------------------------------------------------
+@mixin border_radius($radius) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+#logged-out {
+  background-color: #525358;
+  color: #E4E4E4;
+
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  #login-panel {
+    @include border_radius(15px);
+    margin-top: 151px;
+    background-color: #201F1F;
+  }
+
+  .form-actions {
+    margin-bottom: 15px;
+  }
+}
+
+#logged-in {
+  .table {
+    tr:nth-child(even) {
+      background-color: #fafafa
+    }
+
+    .edit-td {
+      padding-left: 23px;
+    }
+
+    .remove-td {
+      padding-left: 26px;
+    }
+
+    .hour-td {
+      padding-left: 41px;
+    }
+  }
+
+  .container {
+    margin-top: 51px;
+  }
 }

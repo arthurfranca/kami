@@ -1,5 +1,53 @@
-<h1>Listing specialties</h1>
-
+<h3>Gerenciar Especialidades<a href="#" class="btn btn-primary pull-right">Adicionar Novo</a></h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome da Especialidade</th>
+      <th>Editar</th>
+      <th>Excluir</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>Java</td>
+    <td class="edit-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-edit"></span>
+      </a>
+    </td>
+    <td class="remove-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>PHP</td>
+    <td class="edit-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-edit"></span>
+      </a>
+    </td>
+    <td class="remove-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Scrum</td>
+    <td class="edit-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-edit"></span>
+      </a>
+    </td>
+    <td class="remove-td">
+      <a href="#">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a>
+    </td>
+  </tr>
+</table>
+<!--
 <table>
   <thead>
     <tr>
@@ -10,16 +58,16 @@
   </thead>
 
   <tbody>
-    <% @specialties.each do |specialty| %>
+    <%# @specialties.each do |specialty| %>
       <tr>
-        <td><%= link_to 'Show', specialty %></td>
-        <td><%= link_to 'Edit', edit_specialty_path(specialty) %></td>
-        <td><%= link_to 'Destroy', specialty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Show', specialty %></td>
+        <td><%#= link_to 'Edit', edit_specialty_path(specialty) %></td>
+        <td><%#= link_to 'Destroy', specialty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Specialty', new_specialty_path %>
+<%#= link_to 'New Specialty', new_specialty_path %> -->
