@@ -1,7 +1,7 @@
 class Project
   include Mongoid::Document
 
-  embeds_one :baseline_ends # with versioning - acts like embeds_many
+  # embeds_one :baseline_ends # with versioning - acts like embeds_many
 
   has_many :allocations
   has_many :tasks
@@ -12,6 +12,7 @@ class Project
 
   field :name, type: String
   field :start_date, type: Date
+  field :baseline_end, type: Array
 
   def users
     User.in(id: allocations.map(&:user_id))
