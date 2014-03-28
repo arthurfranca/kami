@@ -43,7 +43,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # DB
-gem "mongoid", git: 'git@github.com:mongoid/mongoid.git'
+gem 'mongoid', git: 'git@github.com:mongoid/mongoid.git'
 # Paranoia and Versioning
 gem 'mongoid-paranoia', github: 'simi/mongoid-paranoia'
 gem 'mongoid-versioning', github: 'arthurfranca/mongoid-versioning'
@@ -53,12 +53,19 @@ gem 'simple_form'
 
 # Authentication + Authorization + Role
 gem 'devise'
-gem 'cancan'
+gem 'pundit', '~> 0.2'
 gem 'rolify', github: 'EppO/rolify'
 
+# Decorator Pattern
+gem 'draper', '~> 1.3'
+
 # UI
-gem 'anjlab-bootstrap-rails', '~> 3.0.1.0', :require => 'bootstrap-rails'
-gem 'anjlab-widgets', '~> 3.0.3'
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'datetimepicker-rails', require: 'datetimepicker-rails',
+  git: 'git://github.com/newstler/datetimepicker-rails.git'
+
+# Turbolinks + Jquery fix
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'byebug', '~> 2.2.1'
