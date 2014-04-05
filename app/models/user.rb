@@ -42,43 +42,38 @@ class User
   ## Token authenticatable
   # field :authentication_token, :type => String
 
-  belongs_to :job
+
   # belongs_to :role - top rolify method already covers it
-
-  has_many :allocations
-  has_many :requests, class_name: "Task", inverse_of: :requester, autosave: true
-  has_many :assignments, class_name: "Task", inverse_of: :resource, autosave: true
-  
-  has_and_belongs_to_many :specialties
-
-  accepts_nested_attributes_for :job, :specialties #, :role
+  # field :email, type: String - devise will take care of it
+  # field :password, type: String - devise will take care of it
+   # accepts_nested_attributes_for :job, :specialties #, :role
 
   attr_accessor :selected_role
 
+  has_and_belongs_to_many :allocations, class_name: "Project", inverse_of: :allocated
+
   field :name, type: String
-  # field :email, type: String - devise will take care of it
   field :phone, type: String
   field :address, type: String
-  field :is_available, type: Boolean
 
-  field :username, type: String # configured on devise initializer and down on email_required?
-  # field :password, type: String - devise will take care of it
-
-  def projects
-    Project.in(id: allocations.map(&:project_id))
-  end
+  def project_assignments project_id
+    Project.where(id: project_id).tasks.where(resource_ids: id) +
+    ClosedTask.where(resource_ids: id)
+  end  
 
 private
   def email_required?
-    false
+    true
   end
+
+  # TODO: Pensar nas atribuições de cada role
   def assign_role
     if selected_role.present?
       case selected_role
       when "Administrador" then
-        add_role(:admin)
+        add_role(:admin) # Owns company, can create projects, invite users
       when "Gerente" then
-        add_role(:manager)
+        add_role(:manager) # Can create projects <- ver se vai variar a funcao (as vezes gerente é o único que faz certas coisas, as vezes resource pode tudo tb)
       when "Recurso" then
         add_role(:resource)
       else
@@ -89,8 +84,3 @@ private
     end
   end
 end
-# validates :username,
-#   :uniqueness => {
-#     :case_sensitive => false
-#   },
-#   :format => { ... } # etc.

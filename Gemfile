@@ -70,4 +70,12 @@ gem 'jquery-turbolinks'
 group :development, :test do
   gem 'byebug', '~> 2.2.1'
   gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem "factory_girl_rails", "~> 4.0"
+end
+
+group :test do
+  gem 'mocha', '~> 1.0'
+  gem 'database_cleaner', '~> 1.2'
 end
