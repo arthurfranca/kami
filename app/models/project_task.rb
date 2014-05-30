@@ -1,7 +1,7 @@
-class ProjectTask # used on Sprint just to keep project + tasks info
+class ProjectTask # used on CompanySprint just to keep project + tasks info
   include Mongoid::Document
+  include TaskWrapper
 
-  embedded_in             :sprint
-  belongs_to              :project
-  has_and_belongs_to_many :tasks, inverse_of: :nil
+  embedded_in :company_sprint
+  belongs_to  :project
 end

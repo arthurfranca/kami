@@ -1,6 +1,7 @@
 class AdditionalComment
   include Mongoid::Document
-  extend NotSti::Comment
+  include Comment
 
-  belongs_to :task
+  #open_task or closed_task
+  belongs_to :commentable, polymorphic: true
 end

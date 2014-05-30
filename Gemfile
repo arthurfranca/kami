@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+ruby '2.1.2'
 
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 4.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -45,8 +46,8 @@ end
 # DB
 gem 'mongoid', git: 'git@github.com:mongoid/mongoid.git'
 # Paranoia and Versioning
-gem 'mongoid-paranoia', github: 'simi/mongoid-paranoia'
-gem 'mongoid-versioning', github: 'arthurfranca/mongoid-versioning'
+# gem 'mongoid-paranoia', github: 'simi/mongoid-paranoia'
+# gem 'mongoid-versioning', github: 'arthurfranca/mongoid-versioning'
 
 # Form Helper
 gem 'simple_form'
@@ -68,10 +69,10 @@ gem 'datetimepicker-rails', require: 'datetimepicker-rails',
 gem 'jquery-turbolinks'
 
 group :development, :test do
-  gem 'byebug', '~> 2.2.1'
-  gem 'pry-byebug'
-  gem 'pry-rails'
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'byebug', '~> 3.1'
+  # gem 'pry-byebug'
+  # gem 'pry-rails'
+  gem 'rspec-rails'
   gem "factory_girl_rails", "~> 4.0"
 end
 

@@ -1,6 +1,7 @@
 class FirstPageComment
   include Mongoid::Document
-  extend NotSti::Comment
+  include Comment
 
-  embedded_in :task
+  #open_task or closed_task
+  embedded_in :commentable, polymorphic: true
 end

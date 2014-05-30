@@ -1,6 +1,6 @@
 class ClosedTask
   include Mongoid::Document
-  extend NotSti::Task
+  include Task
 
   belongs_to :project
 end

@@ -1,7 +1,7 @@
 class User
   include Mongoid::Document
-  include Mongoid::Paranoia # deleted_at
-  after_create { assign_role }
+  # include Mongoid::Paranoia # deleted_at
+  # after_create { assign_role }
 
   rolify
 
@@ -46,15 +46,15 @@ class User
   # belongs_to :role - top rolify method already covers it
   # field :email, type: String - devise will take care of it
   # field :password, type: String - devise will take care of it
-   # accepts_nested_attributes_for :job, :specialties #, :role
+  # accepts_nested_attributes_for :job, :specialties #, :role
 
   attr_accessor :selected_role
 
   has_and_belongs_to_many :allocations, class_name: "Project", inverse_of: :allocated
 
-  field :name, type: String
-  field :phone, type: String
-  field :address, type: String
+  field :name,               type: String
+  field :phne, as: :phone,   type: String
+  field :adrs, as: :address, type: String
 
   def project_assignments project_id
     Project.where(id: project_id).tasks.where(resource_ids: id) +
@@ -67,20 +67,20 @@ private
   end
 
   # TODO: Pensar nas atribuições de cada role
-  def assign_role
-    if selected_role.present?
-      case selected_role
-      when "Administrador" then
-        add_role(:admin) # Owns company, can create projects, invite users
-      when "Gerente" then
-        add_role(:manager) # Can create projects <- ver se vai variar a funcao (as vezes gerente é o único que faz certas coisas, as vezes resource pode tudo tb)
-      when "Recurso" then
-        add_role(:resource)
-      else
-        add_role(:resource)
-      end
-    elsif roles.blank? #default role
-      add_role(:resource)
-    end
-  end
+  # def assign_role
+  #   if selected_role.present?
+  #     case selected_role
+  #     when "Administrador" then
+  #       add_role(:admin) # Owns company, can create projects, invite users
+  #     when "Gerente" then
+  #       add_role(:manager) # Can create projects <- ver se vai variar a funcao (as vezes gerente é o único que faz certas coisas, as vezes resource pode tudo tb)
+  #     when "Recurso" then
+  #       add_role(:resource)
+  #     else
+  #       add_role(:resource)
+  #     end
+  #   elsif roles.blank? #default role
+  #     add_role(:resource)
+  #   end
+  # end
 end

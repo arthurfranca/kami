@@ -3,6 +3,6 @@ class Tag
 
   belongs_to :company
 
-  field :name,  type: String
-  field :color, type: String
+  field :name,             type: String
+  field :colr, as: :color, type: String
 end

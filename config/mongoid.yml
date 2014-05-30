@@ -10,8 +10,8 @@ development:
       # of host:port pairs. (required)
       hosts:
         - localhost:27017
-      options:
-        safe: true #good on development and test
+      # options:
+      #   safe: true #good on development and test #had to remove after mongoid update
         # Change the default write concern. (default = { w: 1 })
         # write:
         # w: 1
@@ -70,7 +70,7 @@ test:
       hosts:
         - localhost:27017
       options:
-        safe: true #good on development and test
+        # safe: true #good on development and test
         read: primary
         # In the test environment we lower the retries and retry interval to
         # low amounts for fast failures.
